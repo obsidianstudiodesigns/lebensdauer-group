@@ -1059,6 +1059,58 @@ body::after {
 .summon__row a:hover { color: var(--amber); }
 
 /* --------------------------------------------------------------------------
+   13b. Floating WhatsApp
+   -------------------------------------------------------------------------- */
+.wa {
+  position: fixed;
+  right: clamp(1rem, 2.2vw, 1.75rem);
+  bottom: clamp(1rem, 2.2vw, 1.75rem);
+  z-index: 250;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  height: 56px;
+  padding-inline: 15px;
+  background: var(--amber);
+  color: #131007;
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  transition: gap 0.4s var(--ease), padding 0.4s var(--ease),
+    background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.wa svg { flex: none; }
+
+.wa__label {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: max-width 0.45s var(--ease);
+}
+
+.wa:hover,
+.wa:focus-visible {
+  gap: 0.6rem;
+  padding-right: 22px;
+  background: var(--cream);
+  transform: translateY(-2px);
+}
+
+.wa:hover .wa__label,
+.wa:focus-visible .wa__label { max-width: 12rem; }
+
+/* Out of the way while the mobile menu is open */
+body.is-locked .wa {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.9);
+}
+
+/* --------------------------------------------------------------------------
    14. Footer
    -------------------------------------------------------------------------- */
 .footer {
@@ -1600,6 +1652,10 @@ body::after {
   .creed__slash { display: none; }
 
   .footer__logo { height: 78px; }
+
+  /* No hover on touch, so the pill never expands — keep the disc compact */
+  .wa { height: 52px; padding-inline: 13px; }
+  .wa svg { width: 24px; height: 24px; }
 }
 
 @media (max-width: 420px) {
