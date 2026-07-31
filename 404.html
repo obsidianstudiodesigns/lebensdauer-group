@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found | Lebensdauer Group</title>
+<meta name="description" content="The page you were looking for could not be found.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#08080a">
+<link rel="icon" href="assets/img/favicon-512.png" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+  .lost {
+    display: flex;
+    align-items: center;
+    min-height: 100svh;
+    padding-block: 6rem;
+    background:
+      radial-gradient(70% 100% at 80% 0%, rgba(246, 95, 26, 0.14), transparent 60%),
+      var(--ink-900);
+  }
+  .lost__code {
+    font-family: var(--display);
+    font-size: clamp(6rem, 22vw, 15rem);
+    line-height: 0.82;
+    color: var(--amber);
+    opacity: 0.16;
+  }
+</style>
+</head>
+
+<body>
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <g id="i-arrow" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M3.5 12h15.5M13 6l6 6-6 6"/></g>
+  </defs>
+</svg>
+
+<main class="lost">
+  <div class="shell">
+    <p class="lost__code">404</p>
+    <p class="eyebrow" style="margin-top:1.5rem">Page not found</p>
+    <h1 class="display display--lg">This one didn't<br>make it past<br>snagging.</h1>
+    <p class="lede" style="max-width:44ch;margin-top:1.5rem">
+      The page you were looking for has moved or never existed. Head back to solid ground.
+    </p>
+    <p style="margin-top:2.25rem;display:flex;flex-wrap:wrap;gap:0.85rem">
+      <a class="btn" href="index.html">
+        Back to home
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"></use></svg>
+      </a>
+      <a class="btn btn--ghost" href="contact.html">Contact us</a>
+    </p>
+  </div>
+</main>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
