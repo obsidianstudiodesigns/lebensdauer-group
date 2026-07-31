@@ -89,9 +89,23 @@ cleanly on the dark UI. The header uses mark + wordmark side by side as a horizo
 
 ### Photography
 
-`work-commercial.jpg`, `work-industrial.jpg`, `work-residential.jpg` and `site-sunset.jpg`
-are cropped from the supplied flyers. Replace them with real project photography as it
-becomes available — the markup and aspect ratios stay the same.
+The six service-card images are all 640×480 (4:3) and drive both the homepage grid and the
+sector strip on `services.html`:
+
+| File | Service | Source |
+| --- | --- | --- |
+| `work-commercial.jpg` | Commercial construction | Flyer 2 crop |
+| `work-industrial.jpg` | Industrial construction | Flyer 2 crop |
+| `work-residential.jpg` | High-end residential | Flyer 2 crop |
+| `work-renovations.jpg` | Renovations & alterations | Flyer 1 crop |
+| `work-civil.jpg` | Civil infrastructure | Flyer 1 crop |
+| `work-management.jpg` | Project management | Hero video frame |
+
+`site-sunset.jpg` (the about-page feature image) is also a Flyer 1 crop.
+
+All of these are placeholders derived from the supplied brand assets — replace them with
+real project photography as it becomes available. Keep the 4:3 ratio and the filenames and
+nothing else needs to change.
 
 ---
 
