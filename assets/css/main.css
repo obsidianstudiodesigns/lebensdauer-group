@@ -783,6 +783,18 @@ body::after {
   filter: saturate(1) contrast(1.05) brightness(1);
 }
 
+/* The drafted plan is line-work on near-black — the photo treatment would bury it */
+.service__shot--plan img { filter: none; }
+
+.service__shot--plan::after {
+  background: linear-gradient(180deg, rgba(8, 8, 10, 0.04) 55%, rgba(8, 8, 10, 0.62));
+}
+
+.service:hover .service__shot--plan img {
+  transform: scale(1.03);
+  filter: brightness(1.14) contrast(1.04);
+}
+
 .service__body {
   display: flex;
   flex: 1;
@@ -1093,14 +1105,34 @@ body::after {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1rem 2rem;
   padding-block: 1.6rem;
   border-top: 1px solid var(--hair);
   font-size: 0.8rem;
   color: var(--faint);
 }
 
-.footer__bar a:hover { color: var(--amber); }
+.footer__legal,
+.footer__credit { margin: 0; }
+
+.footer__creed {
+  display: block;
+  margin-top: 0.35rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.footer__credit a {
+  color: var(--amber);
+  border-bottom: 1px solid rgba(255, 193, 60, 0.3);
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.footer__credit a:hover {
+  color: var(--cream);
+  border-bottom-color: var(--cream);
+}
 
 /* --------------------------------------------------------------------------
    15. Inner page hero

@@ -99,13 +99,25 @@ sector strip on `services.html`:
 | `work-residential.jpg` | High-end residential | Flyer 2 crop |
 | `work-renovations.jpg` | Renovations & alterations | Flyer 1 crop |
 | `work-civil.jpg` | Civil infrastructure | Flyer 1 crop |
-| `work-management.jpg` | Project management | Hero video frame |
+| `work-management.jpg` | Project management | Drafted floor plan — see below |
 
 `site-sunset.jpg` (the about-page feature image) is also a Flyer 1 crop.
 
-All of these are placeholders derived from the supplied brand assets — replace them with
-real project photography as it becomes available. Keep the 4:3 ratio and the filenames and
-nothing else needs to change.
+The five photographic images are placeholders derived from the supplied brand assets —
+replace them with real project photography as it becomes available. Keep the 4:3 ratio and
+the filenames and nothing else needs to change.
+
+`work-management.jpg` is not a photo: it is an architectural ground-floor plan drawn as SVG
+and rendered at 2× through headless Chrome, then downscaled. The source is
+`tools/floor-plan.html` — edit that and re-render to change it:
+
+```bash
+# from the repo root, with the plan open at 1280x960
+ffmpeg -i plan-2x.png -vf "scale=640:480:flags=lanczos" -q:v 3 assets/img/work-management.jpg
+```
+
+Because it is line-work on near-black, its card carries a `service__shot--plan` modifier
+that skips the photographic darkening filter. If you swap it for a photo, drop that class.
 
 ---
 
