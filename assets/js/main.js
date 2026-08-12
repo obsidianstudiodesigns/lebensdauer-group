@@ -236,6 +236,154 @@
   }
 
   /* ------------------------------------------------------------------
+     Project lightbox
+     ------------------------------------------------------------------ */
+  var lightbox = document.querySelector("[data-lightbox]");
+  var tiles = Array.prototype.slice.call(document.querySelectorAll("[data-lb]"));
+
+  if (lightbox && tiles.length) {
+    var lbImg = lightbox.querySelector("[data-lb-img]");
+    var lbSector = lightbox.querySelector("[data-lb-sector]");
+    var lbTitle = lightbox.querySelector("[data-lb-title]");
+    var lbCount = lightbox.querySelector("[data-lb-count]");
+    var lbPrev = lightbox.querySelector("[data-lb-prev]");
+    var lbNext = lightbox.querySelector("[data-lb-next]");
+    var lbClose = lightbox.querySelector("[data-lb-close]");
+
+    var index = -1;
+    var opener = null;
+
+    var preload = function (i) {
+      var tile = tiles[(i + tiles.length) % tiles.length];
+      if (!tile) return;
+      var img = new Image();
+      img.src = tile.getAttribute("data-full");
+    };
+
+    var render = function (i) {
+      index = (i + tiles.length) % tiles.length;
+      var tile = tiles[index];
+
+      lbImg.classList.remove("is-ready");
+      lbImg.alt = tile.getAttribute("data-alt") || "";
+      lbSector.textContent = tile.getAttribute("data-sector") || "";
+      lbTitle.textContent = tile.getAttribute("data-title") || "";
+      lbCount.textContent = index + 1 + " / " + tiles.length;
+
+      var src = tile.getAttribute("data-full");
+      var loader = new Image();
+      loader.onload = function () {
+        lbImg.src = src;
+        lbImg.classList.add("is-ready");
+      };
+      loader.onerror = function () {
+        /* fall back to the thumbnail rather than showing an empty frame */
+        var thumb = tile.querySelector("img");
+        if (thumb) lbImg.src = thumb.currentSrc || thumb.src;
+        lbImg.classList.add("is-ready");
+      };
+      loader.src = src;
+
+      preload(index + 1);
+      preload(index - 1);
+    };
+
+    var openLightbox = function (i, trigger) {
+      opener = trigger || null;
+      render(i);
+      lightbox.classList.add("is-open");
+      lightbox.removeAttribute("inert");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("is-locked");
+      window.setTimeout(function () {
+        lbClose.focus();
+      }, 80);
+    };
+
+    var closeLightbox = function () {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("is-locked");
+      window.setTimeout(function () {
+        if (!lightbox.classList.contains("is-open")) {
+          lightbox.setAttribute("inert", "");
+          lbImg.removeAttribute("src");
+        }
+      }, 320);
+      if (opener) opener.focus();
+    };
+
+    var isOpen = function () {
+      return lightbox.classList.contains("is-open");
+    };
+
+    lightbox.setAttribute("inert", "");
+    lightbox.setAttribute("aria-hidden", "true");
+
+    tiles.forEach(function (tile, i) {
+      tile.addEventListener("click", function () {
+        openLightbox(i, tile);
+      });
+    });
+
+    lbClose.addEventListener("click", closeLightbox);
+    lbPrev.addEventListener("click", function () { render(index - 1); });
+    lbNext.addEventListener("click", function () { render(index + 1); });
+
+    /* Backdrop click — but not clicks on the image or the controls */
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox || event.target.hasAttribute("data-lb-stage")) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (!isOpen()) return;
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeLightbox();
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        render(index - 1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        render(index + 1);
+      } else if (event.key === "Tab") {
+        /* Keep focus inside the overlay */
+        var items = Array.prototype.filter.call(
+          lightbox.querySelectorAll("button"),
+          function (el) { return el.offsetParent !== null; }
+        );
+        if (!items.length) return;
+        var first = items[0];
+        var last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
+
+    /* Swipe between images on touch */
+    var touchX = null;
+    lightbox.addEventListener("touchstart", function (event) {
+      touchX = event.changedTouches[0].clientX;
+    }, { passive: true });
+
+    lightbox.addEventListener("touchend", function (event) {
+      if (touchX === null) return;
+      var delta = event.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(delta) < 45) return;
+      render(delta < 0 ? index + 1 : index - 1);
+    }, { passive: true });
+  }
+
+  /* ------------------------------------------------------------------
      Enquiry form
      No backend on this host, so the form hands off to the visitor's mail
      client with everything pre-filled. Swap the action for a Formspree /

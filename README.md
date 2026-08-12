@@ -13,9 +13,10 @@ Plain HTML, CSS and vanilla JavaScript. No build step, no dependencies, no frame
 Drop the folder on any static host and it runs.
 
 ```
-index.html          Home — full-bleed video hero, services, process, locations
+index.html          Home — full-bleed video hero, services, project teaser, process
 about.html          The group, values, numbers, regions
 services.html       Sector showcase + six detailed service blocks
+projects.html       Full project gallery with lightbox
 contact.html        Enquiry form, direct contact details, regions
 404.html            Not-found page
 robots.txt          Crawl rules
@@ -119,21 +120,45 @@ ffmpeg -i plan-2x.png -vf "scale=640:480:flags=lanczos" -q:v 3 assets/img/work-m
 Because it is line-work on near-black, its card carries a `service__shot--plan` modifier
 that skips the photographic darkening filter. If you swap it for a photo, drop that class.
 
-### Recent projects gallery
+### Project gallery
 
-`assets/img/projects/` holds the nine images in the homepage "Recent projects" grid. These
-are **real Lebensdauer Group project photographs**, cropped to 4:3 at 1000×750 from the
-originals in `Our work/`:
+All 22 usable photographs from `Our work/` are published, at two sizes:
+
+| Path | Purpose | Size |
+| --- | --- | --- |
+| `assets/img/projects/<slug>.jpg` | Grid thumbnail | 800×600, centre cover-crop to 4:3 |
+| `assets/img/projects/full/<slug>.jpg` | Lightbox view | original aspect, long edge capped at 1600 |
+
+Thumbnails are cropped so the grid stays even; the lightbox shows the **uncropped** frame,
+so portrait shots are not chopped. Neither is ever upscaled.
 
 ```bash
+# thumbnail
 ffmpeg -i "Our work/<source>.jpeg" \
-  -vf "scale=1000:750:force_original_aspect_ratio=increase,crop=1000:750,unsharp=5:5:0.3" \
-  -q:v 4 assets/img/projects/<name>.jpg
+  -vf "scale=800:600:force_original_aspect_ratio=increase,crop=800:600,unsharp=5:5:0.3" \
+  -q:v 4 assets/img/projects/<slug>.jpg
+
+# full view — min() keeps small originals at native size
+ffmpeg -i "Our work/<source>.jpeg" -vf "scale='min(iw,1600)':-2" \
+  -q:v 4 assets/img/projects/full/<slug>.jpg
 ```
 
-To add more, drop a new 4:3 image in that folder and copy one `<figure class="shot">` block
-in the `.gallery` grid on `index.html`. The grid is 3 columns, dropping to 2 below 1024px
-and 1 below 560px, so any multiple of the row count sits neatly.
+`projects.html` renders both sizes from one `<button class="tile" data-lb>` per image. To
+add a project, generate the two files and copy a tile block — the `data-full`,
+`data-sector`, `data-title` and `data-alt` attributes drive the lightbox, and the counter
+picks up the new total automatically. The homepage carries a nine-image teaser using plain
+`<figure class="shot">` tiles (no lightbox) plus a link through to the full page; if you
+change the total, update the "See all 22 projects" label there.
+
+The lightbox lives in `assets/js/main.js`: arrow keys and on-screen arrows to browse
+(wrapping at both ends), swipe on touch, `Escape` or a backdrop click to close, focus moved
+to the close button and returned to the tile that opened it, focus trapped while open, body
+scroll locked, and neighbouring images preloaded. If a full-size file is missing it falls
+back to the thumbnail rather than showing an empty frame.
+
+One CSS note worth keeping: `.lightbox__stage` is **flex, not grid**. A centred grid item
+treats its area as indefinite, so `max-height: 100%` never resolves and tall portrait images
+overflow the viewport.
 
 > **Excluded on purpose:** `Our work/WhatsApp Image 2026-08-12 at 11.39.13.jpeg` is a
 > watermarked Alamy stock graphic, not project photography. It is not published anywhere on
