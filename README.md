@@ -94,9 +94,9 @@ sector strip on `services.html`:
 
 | File | Service | Source |
 | --- | --- | --- |
+| `work-residential.jpg` | High-end residential | Flyer 2 crop |
 | `work-commercial.jpg` | Commercial construction | Flyer 2 crop |
 | `work-industrial.jpg` | Industrial construction | Flyer 2 crop |
-| `work-residential.jpg` | High-end residential | Flyer 2 crop |
 | `work-renovations.jpg` | Renovations & alterations | Flyer 1 crop |
 | `work-civil.jpg` | Civil infrastructure | Flyer 1 crop |
 | `work-management.jpg` | Project management | Drafted floor plan — see below |
@@ -118,6 +118,26 @@ ffmpeg -i plan-2x.png -vf "scale=640:480:flags=lanczos" -q:v 3 assets/img/work-m
 
 Because it is line-work on near-black, its card carries a `service__shot--plan` modifier
 that skips the photographic darkening filter. If you swap it for a photo, drop that class.
+
+### Recent projects gallery
+
+`assets/img/projects/` holds the nine images in the homepage "Recent projects" grid. These
+are **real Lebensdauer Group project photographs**, cropped to 4:3 at 1000×750 from the
+originals in `Our work/`:
+
+```bash
+ffmpeg -i "Our work/<source>.jpeg" \
+  -vf "scale=1000:750:force_original_aspect_ratio=increase,crop=1000:750,unsharp=5:5:0.3" \
+  -q:v 4 assets/img/projects/<name>.jpg
+```
+
+To add more, drop a new 4:3 image in that folder and copy one `<figure class="shot">` block
+in the `.gallery` grid on `index.html`. The grid is 3 columns, dropping to 2 below 1024px
+and 1 below 560px, so any multiple of the row count sits neatly.
+
+> **Excluded on purpose:** `Our work/WhatsApp Image 2026-08-12 at 11.39.13.jpeg` is a
+> watermarked Alamy stock graphic, not project photography. It is not published anywhere on
+> the site and should not be — publishing a watermarked stock image is a licensing breach.
 
 ---
 
