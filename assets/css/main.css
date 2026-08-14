@@ -380,11 +380,18 @@ body::after {
 .nav__link[aria-current="page"]::after { transform: scaleX(1); }
 .nav__link[aria-current="page"] { color: var(--amber); }
 
+.masthead__ctas {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: none;
+}
+
 .masthead__cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.7rem 1.2rem;
+  gap: 0.55rem;
+  padding: 0.7rem 1rem;
   border: 1px solid var(--hair-strong);
   border-radius: 2px;
   font-size: 0.8rem;
@@ -397,6 +404,12 @@ body::after {
 .masthead__cta svg { color: var(--amber); flex: none; }
 .masthead__cta:hover { border-color: var(--amber); color: var(--amber); }
 .masthead__cta:hover svg { color: inherit; }
+
+/* Second number drops out first when the bar gets tight — it is still in the
+   drawer, the CTA blocks and the footer. */
+@media (max-width: 1180px) {
+  .masthead__cta--alt { display: none; }
+}
 
 /* Burger */
 .burger {
@@ -835,6 +848,18 @@ body::after {
   inset: 0;
   z-index: 2;
 }
+
+/* Fills the sixth cell of the services grid and gives the row somewhere to go */
+.service--cta {
+  background: linear-gradient(155deg, rgba(255, 193, 60, 0.08), transparent 62%);
+}
+
+.service--cta .service__body {
+  justify-content: center;
+  padding-block: clamp(2.25rem, 4vw, 3.25rem);
+}
+
+.service--cta h3 { color: var(--amber); }
 
 /* --------------------------------------------------------------------------
    10. Pillars
@@ -1355,6 +1380,95 @@ body.is-locked .wa {
 
 @media (max-width: 560px) {
   .gallery { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Selectable project categories */
+.cats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+}
+
+.cat {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+  color: inherit;
+  background: var(--ink-800);
+  border: 1px solid var(--hair);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.35s var(--ease);
+}
+
+.cat img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  filter: saturate(0.7) contrast(1.05) brightness(0.5);
+  transition: filter 0.5s var(--ease), transform 0.9s var(--ease);
+}
+
+.cat__body {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.6rem 1.25rem 1.15rem;
+  background: linear-gradient(transparent, rgba(6, 6, 8, 0.9));
+}
+
+.cat__name {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.cat__count {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.35s var(--ease);
+}
+
+.cat:hover { border-color: var(--hair-strong); }
+
+.cat:hover img {
+  filter: saturate(0.95) contrast(1.05) brightness(0.72);
+  transform: scale(1.04);
+}
+
+.cat[aria-selected="true"] { border-color: var(--amber); }
+
+.cat[aria-selected="true"] img {
+  filter: saturate(1) contrast(1.05) brightness(0.88);
+}
+
+.cat[aria-selected="true"] .cat__count { color: var(--amber); }
+
+.cat[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 3px;
+  background: var(--amber);
+}
+
+.catpanel[hidden] { display: none; }
+
+@media (max-width: 720px) {
+  .cats { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Gallery tile that opens the lightbox — a button, so it is focusable by default */

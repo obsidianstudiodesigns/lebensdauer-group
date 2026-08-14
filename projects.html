@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Our Recent Projects | Lebensdauer Group — Eastern Cape &amp; Durban</title>
-<meta name="description" content="Recent Lebensdauer Group projects — high-end residential homes, multi-unit developments, commercial and industrial buildings, and work in progress on site across the Eastern Cape and Durban.">
+<meta name="description" content="Recent Lebensdauer Group projects by category — residential homes and developments, commercial buildings and industrial facilities across the Eastern Cape and Durban.">
 <meta name="theme-color" content="#08080a">
 <link rel="canonical" href="https://www.lebensdauergroup.co.za/projects.html">
 
@@ -65,10 +65,16 @@
       <a class="nav__link" href="contact.html">Contact</a>
     </nav>
 
-    <a class="masthead__cta" href="tel:+27748607069">
-      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"></use></svg>
-      074 860 7069
-    </a>
+    <div class="masthead__ctas">
+      <a class="masthead__cta" href="tel:+27748607069">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"></use></svg>
+        074 860 7069
+      </a>
+      <a class="masthead__cta masthead__cta--alt" href="tel:+27847075250">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"></use></svg>
+        084 707 5250
+      </a>
+    </div>
 
     <button class="burger" type="button" data-burger aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
       <span class="burger__bar"></span>
@@ -120,285 +126,377 @@
     </div>
     <div>
       <p class="lede muted" style="margin:0">
-        22 projects across the Eastern Cape and Durban — completed homes,
-        multi-unit developments, commercial and industrial buildings, and work in progress
-        on site. Tap any image to open it full size.
+        Pick a category to see the work. Tap any image to open it full size.
       </p>
     </div>
   </div>
 </section>
 
-<section class="band" aria-labelledby="grid-title">
+<section class="band band--tight" aria-labelledby="cats-title">
   <div class="shell">
-    <h2 class="sr-only" id="grid-title">Project gallery</h2>
-    <div class="gallery" data-reveal>
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/residential-poolside.jpg"
-        data-sector="High-end residential"
-        data-title="Poolside living"
-        data-alt="Completed home with stacking doors opening onto a pool and landscaped garden">
-        <img src="assets/img/projects/residential-poolside.jpg" alt="Completed home with stacking doors opening onto a pool and landscaped garden" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+    <h2 class="sr-only" id="cats-title">Choose a category</h2>
+    <div class="cats" role="tablist" aria-label="Project categories" data-reveal>
+      <button class="cat" type="button" role="tab" data-cat="residential"
+        id="tab-residential" aria-controls="panel-residential" aria-selected="false" tabindex="-1">
+        <img src="assets/img/projects/residential-poolside.jpg" alt="Completed home with a pool and stacking doors" width="800" height="600" loading="lazy" decoding="async">
+        <span class="cat__body">
+          <span class="cat__name">Residential</span>
+          <span class="cat__count">12 projects</span>
         </span>
-        <span class="tile__cap"><em>High-end residential</em>Poolside living</span>
       </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/residential-double-storey.jpg"
-        data-sector="High-end residential"
-        data-title="Double storey"
-        data-alt="Double-storey home with stone cladding, full-height glazing and a paved forecourt">
-        <img src="assets/img/projects/residential-double-storey.jpg" alt="Double-storey home with stone cladding, full-height glazing and a paved forecourt" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+      <button class="cat" type="button" role="tab" data-cat="commercial"
+        id="tab-commercial" aria-controls="panel-commercial" aria-selected="false" tabindex="-1">
+        <img src="assets/img/projects/commercial-retail.jpg" alt="Completed retail building with shopfront glazing" width="800" height="600" loading="lazy" decoding="async">
+        <span class="cat__body">
+          <span class="cat__name">Commercial</span>
+          <span class="cat__count">10 projects</span>
         </span>
-        <span class="tile__cap"><em>High-end residential</em>Double storey</span>
       </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/residential-handover.jpg"
-        data-sector="High-end residential"
-        data-title="Handed over"
-        data-alt="Completed home floodlit at night with a vehicle under the carport">
-        <img src="assets/img/projects/residential-handover.jpg" alt="Completed home floodlit at night with a vehicle under the carport" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+      <button class="cat" type="button" role="tab" data-cat="industrial"
+        id="tab-industrial" aria-controls="panel-industrial" aria-selected="false" tabindex="-1">
+        <img src="assets/img/projects/industrial-distribution.jpg" alt="Distribution warehouse with loading bays at golden hour" width="800" height="600" loading="lazy" decoding="async">
+        <span class="cat__body">
+          <span class="cat__name">Industrial</span>
+          <span class="cat__count">4 projects</span>
         </span>
-        <span class="tile__cap"><em>High-end residential</em>Handed over</span>
       </button>
+    </div>
+  </div>
+</section>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/residential-pergola.jpg"
-        data-sector="High-end residential"
-        data-title="Pergola &amp; paving"
-        data-alt="Single-storey home with a steel pergola over the garage and block-paved driveway">
-        <img src="assets/img/projects/residential-pergola.jpg" alt="Single-storey home with a steel pergola over the garage and block-paved driveway" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>High-end residential</em>Pergola &amp; paving</span>
-      </button>
+<section class="band band--ink" id="gallery">
+  <div class="shell">
+    <div class="catpanel" id="panel-residential" data-panel="residential" role="tabpanel" aria-labelledby="tab-residential">
+      <h2 class="sr-only">Residential projects</h2>
+      <div class="gallery">
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/residential-poolside.jpg"
+          data-sector="Completed"
+          data-title="Poolside living"
+          data-alt="Completed home with stacking doors opening onto a pool and landscaped garden">
+          <img src="assets/img/projects/residential-poolside.jpg" alt="Completed home with stacking doors opening onto a pool and landscaped garden" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Poolside living</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/residential-courtyard.jpg"
-        data-sector="High-end residential"
-        data-title="Front courtyard"
-        data-alt="White rendered home with pergola, planted courtyard and double garage">
-        <img src="assets/img/projects/residential-courtyard.jpg" alt="White rendered home with pergola, planted courtyard and double garage" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>High-end residential</em>Front courtyard</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/residential-double-storey.jpg"
+          data-sector="Completed"
+          data-title="Double storey"
+          data-alt="Double-storey home with stone cladding, full-height glazing and a paved forecourt">
+          <img src="assets/img/projects/residential-double-storey.jpg" alt="Double-storey home with stone cladding, full-height glazing and a paved forecourt" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Double storey</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/residential-dusk.jpg"
-        data-sector="High-end residential"
-        data-title="Completed at dusk"
-        data-alt="Completed single-storey home photographed at dusk with the garage closed">
-        <img src="assets/img/projects/residential-dusk.jpg" alt="Completed single-storey home photographed at dusk with the garage closed" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>High-end residential</em>Completed at dusk</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/residential-handover.jpg"
+          data-sector="Completed"
+          data-title="Handed over"
+          data-alt="Completed home floodlit at night with a vehicle under the carport">
+          <img src="assets/img/projects/residential-handover.jpg" alt="Completed home floodlit at night with a vehicle under the carport" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Handed over</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/residential-contemporary.jpg"
-        data-sector="Residential"
-        data-title="Painted façade"
-        data-alt="Double-storey building with a deep red painted façade and decorative balcony screen">
-        <img src="assets/img/projects/residential-contemporary.jpg" alt="Double-storey building with a deep red painted façade and decorative balcony screen" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>Residential</em>Painted façade</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/residential-pergola.jpg"
+          data-sector="Completed"
+          data-title="Pergola &amp; paving"
+          data-alt="Single-storey home with a steel pergola over the garage and block-paved driveway">
+          <img src="assets/img/projects/residential-pergola.jpg" alt="Single-storey home with a steel pergola over the garage and block-paved driveway" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Pergola &amp; paving</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/residential-street.jpg"
-        data-sector="High-end residential"
-        data-title="Street elevation"
-        data-alt="Double-storey home seen from the street with garage and paved apron">
-        <img src="assets/img/projects/residential-street.jpg" alt="Double-storey home seen from the street with garage and paved apron" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>High-end residential</em>Street elevation</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/residential-courtyard.jpg"
+          data-sector="Completed"
+          data-title="Front courtyard"
+          data-alt="White rendered home with pergola, planted courtyard and double garage">
+          <img src="assets/img/projects/residential-courtyard.jpg" alt="White rendered home with pergola, planted courtyard and double garage" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Front courtyard</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/residential-garage.jpg"
-        data-sector="High-end residential"
-        data-title="Double garage"
-        data-alt="Completed double-storey home with a double garage and paved driveway">
-        <img src="assets/img/projects/residential-garage.jpg" alt="Completed double-storey home with a double garage and paved driveway" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>High-end residential</em>Double garage</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/residential-dusk.jpg"
+          data-sector="Completed"
+          data-title="Completed at dusk"
+          data-alt="Completed single-storey home photographed at dusk with the garage closed">
+          <img src="assets/img/projects/residential-dusk.jpg" alt="Completed single-storey home photographed at dusk with the garage closed" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Completed at dusk</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/development-units.jpg"
-        data-sector="Development"
-        data-title="Multi-unit residential"
-        data-alt="Completed multi-unit residential block, plastered and painted">
-        <img src="assets/img/projects/development-units.jpg" alt="Completed multi-unit residential block, plastered and painted" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>Development</em>Multi-unit residential</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/residential-contemporary.jpg"
+          data-sector="Completed"
+          data-title="Painted façade"
+          data-alt="Double-storey building with a deep red painted façade and decorative balcony screen">
+          <img src="assets/img/projects/residential-contemporary.jpg" alt="Double-storey building with a deep red painted façade and decorative balcony screen" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Painted façade</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/development-in-progress.jpg"
-        data-sector="Development"
-        data-title="Under construction"
-        data-alt="Multi-unit residential development under construction in face brick">
-        <img src="assets/img/projects/development-in-progress.jpg" alt="Multi-unit residential development under construction in face brick" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>Development</em>Under construction</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/residential-street.jpg"
+          data-sector="Completed"
+          data-title="Street elevation"
+          data-alt="Double-storey home seen from the street with garage and paved apron">
+          <img src="assets/img/projects/residential-street.jpg" alt="Double-storey home seen from the street with garage and paved apron" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Street elevation</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/development-groundworks.jpg"
-        data-sector="Development"
-        data-title="Superstructure rising"
-        data-alt="Face-brick units rising from a sandy platform, first floor under way">
-        <img src="assets/img/projects/development-groundworks.jpg" alt="Face-brick units rising from a sandy platform, first floor under way" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>Development</em>Superstructure rising</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/residential-garage.jpg"
+          data-sector="Completed"
+          data-title="Double garage"
+          data-alt="Completed double-storey home with a double garage and paved driveway">
+          <img src="assets/img/projects/residential-garage.jpg" alt="Completed double-storey home with a double garage and paved driveway" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Double garage</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/commercial-retail.jpg"
-        data-sector="Commercial"
-        data-title="Retail development"
-        data-alt="Completed retail building with full-height shopfront glazing and a paved apron">
-        <img src="assets/img/projects/commercial-retail.jpg" alt="Completed retail building with full-height shopfront glazing and a paved apron" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>Commercial</em>Retail development</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/development-units.jpg"
+          data-sector="Development"
+          data-title="Multi-unit residential"
+          data-alt="Completed multi-unit residential block, plastered and painted">
+          <img src="assets/img/projects/development-units.jpg" alt="Completed multi-unit residential block, plastered and painted" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Development</em>Multi-unit residential</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/industrial-units.jpg"
-        data-sector="Industrial"
-        data-title="Completed units"
-        data-alt="Row of completed industrial units with roller shutter doors and a paved yard">
-        <img src="assets/img/projects/industrial-units.jpg" alt="Row of completed industrial units with roller shutter doors and a paved yard" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>Industrial</em>Completed units</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/development-in-progress.jpg"
+          data-sector="Development"
+          data-title="Under construction"
+          data-alt="Multi-unit residential development under construction in face brick">
+          <img src="assets/img/projects/development-in-progress.jpg" alt="Multi-unit residential development under construction in face brick" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Development</em>Under construction</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/industrial-cladding.jpg"
-        data-sector="Industrial"
-        data-title="Cladding complete"
-        data-alt="Long industrial building with dark profile cladding over a face-brick base">
-        <img src="assets/img/projects/industrial-cladding.jpg" alt="Long industrial building with dark profile cladding over a face-brick base" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>Industrial</em>Cladding complete</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/development-groundworks.jpg"
+          data-sector="Development"
+          data-title="Superstructure rising"
+          data-alt="Face-brick units rising from a sandy platform, first floor under way">
+          <img src="assets/img/projects/development-groundworks.jpg" alt="Face-brick units rising from a sandy platform, first floor under way" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Development</em>Superstructure rising</span>
+        </button>
+      </div>
+    </div>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/industrial-steel-frame.jpg"
-        data-sector="Industrial"
-        data-title="Steel-framed facility"
-        data-alt="Steel-framed industrial building with the roof sheeted and a deep canopy">
-        <img src="assets/img/projects/industrial-steel-frame.jpg" alt="Steel-framed industrial building with the roof sheeted and a deep canopy" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>Industrial</em>Steel-framed facility</span>
-      </button>
+    <div class="catpanel" id="panel-commercial" data-panel="commercial" role="tabpanel" aria-labelledby="tab-commercial">
+      <h2 class="sr-only">Commercial projects</h2>
+      <div class="gallery">
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/commercial-retail.jpg"
+          data-sector="Retail"
+          data-title="Retail development"
+          data-alt="Completed retail building with full-height shopfront glazing and a paved apron">
+          <img src="assets/img/projects/commercial-retail.jpg" alt="Completed retail building with full-height shopfront glazing and a paved apron" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Retail</em>Retail development</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/industrial-steel-erection.jpg"
-        data-sector="Industrial"
-        data-title="Steel erection"
-        data-alt="Erected steel portal frames over brick columns on a cleared site">
-        <img src="assets/img/projects/industrial-steel-erection.jpg" alt="Erected steel portal frames over brick columns on a cleared site" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>Industrial</em>Steel erection</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/industrial-units.jpg"
+          data-sector="Completed"
+          data-title="Commercial units"
+          data-alt="Row of completed units with roller shutter doors and a paved yard">
+          <img src="assets/img/projects/industrial-units.jpg" alt="Row of completed units with roller shutter doors and a paved yard" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Commercial units</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/industrial-frame-brickwork.jpg"
-        data-sector="Industrial"
-        data-title="Frame &amp; brickwork"
-        data-alt="Steel frame with brickwork under way and site teams at work">
-        <img src="assets/img/projects/industrial-frame-brickwork.jpg" alt="Steel frame with brickwork under way and site teams at work" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>Industrial</em>Frame &amp; brickwork</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/industrial-cladding.jpg"
+          data-sector="Completed"
+          data-title="Cladding complete"
+          data-alt="Long building with dark profile cladding over a face-brick base">
+          <img src="assets/img/projects/industrial-cladding.jpg" alt="Long building with dark profile cladding over a face-brick base" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Cladding complete</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/industrial-interior.jpg"
-        data-sector="Industrial"
-        data-title="Internal envelope"
-        data-alt="Internal view of a steel-framed building with the brick envelope going up">
-        <img src="assets/img/projects/industrial-interior.jpg" alt="Internal view of a steel-framed building with the brick envelope going up" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>Industrial</em>Internal envelope</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/industrial-steel-frame.jpg"
+          data-sector="Completed"
+          data-title="Steel-framed build"
+          data-alt="Steel-framed building with the roof sheeted and a deep canopy">
+          <img src="assets/img/projects/industrial-steel-frame.jpg" alt="Steel-framed building with the roof sheeted and a deep canopy" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Completed</em>Steel-framed build</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/brickwork-on-site.jpg"
-        data-sector="On site"
-        data-title="Structural brickwork"
-        data-alt="Bricklaying team working from scaffolding beneath a sheeted steel roof">
-        <img src="assets/img/projects/brickwork-on-site.jpg" alt="Bricklaying team working from scaffolding beneath a sheeted steel roof" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>On site</em>Structural brickwork</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/industrial-steel-erection.jpg"
+          data-sector="In progress"
+          data-title="Steel erection"
+          data-alt="Erected steel portal frames over brick columns on a cleared site">
+          <img src="assets/img/projects/industrial-steel-erection.jpg" alt="Erected steel portal frames over brick columns on a cleared site" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>In progress</em>Steel erection</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/brickwork-scaffold.jpg"
-        data-sector="On site"
-        data-title="Working at height"
-        data-alt="Bricklayers in harnesses on scaffolding against a face-brick wall">
-        <img src="assets/img/projects/brickwork-scaffold.jpg" alt="Bricklayers in harnesses on scaffolding against a face-brick wall" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>On site</em>Working at height</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/industrial-frame-brickwork.jpg"
+          data-sector="In progress"
+          data-title="Frame &amp; brickwork"
+          data-alt="Steel frame with brickwork under way and site teams at work">
+          <img src="assets/img/projects/industrial-frame-brickwork.jpg" alt="Steel frame with brickwork under way and site teams at work" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>In progress</em>Frame &amp; brickwork</span>
+        </button>
 
-      <button class="tile" type="button" data-lb
-        data-full="assets/img/projects/full/brickwork-team.jpg"
-        data-sector="On site"
-        data-title="Bricklaying team"
-        data-alt="Site team laying brickwork from a scaffold platform inside the building envelope">
-        <img src="assets/img/projects/brickwork-team.jpg" alt="Site team laying brickwork from a scaffold platform inside the building envelope" width="800" height="600" loading="lazy" decoding="async">
-        <span class="tile__zoom" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
-        </span>
-        <span class="tile__cap"><em>On site</em>Bricklaying team</span>
-      </button>
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/industrial-interior.jpg"
+          data-sector="In progress"
+          data-title="Internal envelope"
+          data-alt="Internal view of a steel-framed building with the brick envelope going up">
+          <img src="assets/img/projects/industrial-interior.jpg" alt="Internal view of a steel-framed building with the brick envelope going up" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>In progress</em>Internal envelope</span>
+        </button>
+
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/brickwork-on-site.jpg"
+          data-sector="On site"
+          data-title="Structural brickwork"
+          data-alt="Bricklaying team working from scaffolding beneath a sheeted steel roof">
+          <img src="assets/img/projects/brickwork-on-site.jpg" alt="Bricklaying team working from scaffolding beneath a sheeted steel roof" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>On site</em>Structural brickwork</span>
+        </button>
+
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/brickwork-scaffold.jpg"
+          data-sector="On site"
+          data-title="Working at height"
+          data-alt="Bricklayers in harnesses on scaffolding against a face-brick wall">
+          <img src="assets/img/projects/brickwork-scaffold.jpg" alt="Bricklayers in harnesses on scaffolding against a face-brick wall" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>On site</em>Working at height</span>
+        </button>
+
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/brickwork-team.jpg"
+          data-sector="On site"
+          data-title="Bricklaying team"
+          data-alt="Site team laying brickwork from a scaffold platform inside the building envelope">
+          <img src="assets/img/projects/brickwork-team.jpg" alt="Site team laying brickwork from a scaffold platform inside the building envelope" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>On site</em>Bricklaying team</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="catpanel" id="panel-industrial" data-panel="industrial" role="tabpanel" aria-labelledby="tab-industrial">
+      <h2 class="sr-only">Industrial projects</h2>
+      <div class="gallery">
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/industrial-distribution.jpg"
+          data-sector="Facility"
+          data-title="Distribution warehouse"
+          data-alt="Large distribution warehouse with roller shutter loading bays and a concrete yard">
+          <img src="assets/img/projects/industrial-distribution.jpg" alt="Large distribution warehouse with roller shutter loading bays and a concrete yard" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Facility</em>Distribution warehouse</span>
+        </button>
+
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/industrial-warehouse-interior.jpg"
+          data-sector="Facility"
+          data-title="Warehouse interior"
+          data-alt="Clear-span warehouse interior with roof lights and a power-floated concrete floor">
+          <img src="assets/img/projects/industrial-warehouse-interior.jpg" alt="Clear-span warehouse interior with roof lights and a power-floated concrete floor" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>Facility</em>Warehouse interior</span>
+        </button>
+
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/industrial-portal-frame.jpg"
+          data-sector="In progress"
+          data-title="Portal frame erection"
+          data-alt="Steel portal frames being lifted into place by a mobile crane at sunset">
+          <img src="assets/img/projects/industrial-portal-frame.jpg" alt="Steel portal frames being lifted into place by a mobile crane at sunset" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>In progress</em>Portal frame erection</span>
+        </button>
+
+        <button class="tile" type="button" data-lb
+          data-full="assets/img/projects/full/industrial-envelope.jpg"
+          data-sector="In progress"
+          data-title="Structural envelope"
+          data-alt="Interior of a partly built industrial unit with steel columns and roof lights">
+          <img src="assets/img/projects/industrial-envelope.jpg" alt="Interior of a partly built industrial unit with steel columns and roof lights" width="800" height="600" loading="lazy" decoding="async">
+          <span class="tile__zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 9.5v-6h6M20.5 14.5v6h-6M20.5 9.5v-6h-6M3.5 14.5v6h6"/></svg>
+          </span>
+          <span class="tile__cap"><em>In progress</em>Structural envelope</span>
+        </button>
+      </div>
     </div>
 
     <p class="muted" style="margin-top:clamp(2rem,4vw,3rem);font-size:0.9rem">
-      Photography of our own completed and in-progress contracts. More available on request —
+      More available on request —
       <a class="textlink" href="contact.html" style="vertical-align:baseline">get in touch</a>
     </p>
   </div>
@@ -481,7 +579,6 @@
           <li><a href="services.html#residential">High-end residential</a></li>
           <li><a href="services.html#commercial">Commercial construction</a></li>
           <li><a href="services.html#industrial">Industrial construction</a></li>
-          <li><a href="services.html#renovations">Renovations &amp; alterations</a></li>
           <li><a href="services.html#civil">Civil infrastructure</a></li>
           <li><a href="services.html#management">Project management</a></li>
         </ul>
@@ -522,7 +619,7 @@
 <!-- Lightbox ------------------------------------------------------------- -->
 <div class="lightbox" data-lightbox role="dialog" aria-modal="true" aria-label="Project image viewer">
   <div class="lightbox__bar">
-    <span class="lightbox__count" data-lb-count>1 / 22</span>
+    <span class="lightbox__count" data-lb-count>1 / 26</span>
     <button class="lightbox__btn" type="button" data-lb-close aria-label="Close viewer">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5l14 14M19 5L5 19"/></svg>
     </button>

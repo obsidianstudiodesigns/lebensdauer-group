@@ -236,12 +236,81 @@
   }
 
   /* ------------------------------------------------------------------
+     Project categories — tiles behave as tabs over the galleries below.
+     With JS off every panel stays visible, so nothing is lost.
+     ------------------------------------------------------------------ */
+  var cats = Array.prototype.slice.call(document.querySelectorAll("[data-cat]"));
+  var panels = Array.prototype.slice.call(document.querySelectorAll("[data-panel]"));
+
+  if (cats.length && panels.length) {
+    var names = panels.map(function (p) { return p.getAttribute("data-panel"); });
+
+    var selectCat = function (name, moveFocus, writeHash) {
+      cats.forEach(function (c) {
+        var on = c.getAttribute("data-cat") === name;
+        c.setAttribute("aria-selected", on ? "true" : "false");
+        c.setAttribute("tabindex", on ? "0" : "-1");
+        if (on && moveFocus) c.focus();
+      });
+      panels.forEach(function (p) {
+        if (p.getAttribute("data-panel") === name) p.removeAttribute("hidden");
+        else p.setAttribute("hidden", "");
+      });
+      /* Only once the visitor has chosen — no need to dirty the URL on load */
+      if (writeHash !== false && window.history && window.history.replaceState) {
+        window.history.replaceState(null, "", "#" + name);
+      }
+    };
+
+    cats.forEach(function (c) {
+      c.addEventListener("click", function () {
+        selectCat(c.getAttribute("data-cat"));
+      });
+
+      c.addEventListener("keydown", function (event) {
+        var i = cats.indexOf(c);
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          event.preventDefault();
+          selectCat(cats[(i + 1) % cats.length].getAttribute("data-cat"), true);
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          event.preventDefault();
+          selectCat(cats[(i - 1 + cats.length) % cats.length].getAttribute("data-cat"), true);
+        } else if (event.key === "Home") {
+          event.preventDefault();
+          selectCat(names[0], true);
+        } else if (event.key === "End") {
+          event.preventDefault();
+          selectCat(names[names.length - 1], true);
+        }
+      });
+    });
+
+    /* A link to #commercial from elsewhere on the site changes only the fragment,
+       so the page never reloads — listen for it. */
+    window.addEventListener("hashchange", function () {
+      var h = (window.location.hash || "").replace("#", "");
+      if (names.indexOf(h) > -1) selectCat(h, false, false);
+    });
+
+    var wanted = (window.location.hash || "").replace("#", "");
+    selectCat(names.indexOf(wanted) > -1 ? wanted : names[0], false, false);
+  }
+
+  /* ------------------------------------------------------------------
      Project lightbox
      ------------------------------------------------------------------ */
   var lightbox = document.querySelector("[data-lightbox]");
-  var tiles = Array.prototype.slice.call(document.querySelectorAll("[data-lb]"));
+  var allTiles = Array.prototype.slice.call(document.querySelectorAll("[data-lb]"));
 
-  if (lightbox && tiles.length) {
+  /* Only the tiles in the category currently on screen. Without JS every panel is
+     visible, so this degrades to "all of them". */
+  var tiles = allTiles;
+  var visibleTiles = function () {
+    var shown = allTiles.filter(function (t) { return t.offsetParent !== null; });
+    return shown.length ? shown : allTiles;
+  };
+
+  if (lightbox && allTiles.length) {
     var lbImg = lightbox.querySelector("[data-lb-img]");
     var lbSector = lightbox.querySelector("[data-lb-sector]");
     var lbTitle = lightbox.querySelector("[data-lb-title]");
@@ -320,9 +389,11 @@
     lightbox.setAttribute("inert", "");
     lightbox.setAttribute("aria-hidden", "true");
 
-    tiles.forEach(function (tile, i) {
+    allTiles.forEach(function (tile) {
       tile.addEventListener("click", function () {
-        openLightbox(i, tile);
+        tiles = visibleTiles();
+        var i = tiles.indexOf(tile);
+        openLightbox(i < 0 ? 0 : i, tile);
       });
     });
 

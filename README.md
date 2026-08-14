@@ -143,12 +143,25 @@ ffmpeg -i "Our work/<source>.jpeg" -vf "scale='min(iw,1600)':-2" \
   -q:v 4 assets/img/projects/full/<slug>.jpg
 ```
 
-`projects.html` renders both sizes from one `<button class="tile" data-lb>` per image. To
-add a project, generate the two files and copy a tile block — the `data-full`,
-`data-sector`, `data-title` and `data-alt` attributes drive the lightbox, and the counter
-picks up the new total automatically. The homepage carries a nine-image teaser using plain
-`<figure class="shot">` tiles (no lightbox) plus a link through to the full page; if you
-change the total, update the "See all 22 projects" label there.
+`projects.html` groups the work into three categories — **Residential** (12),
+**Commercial** (10) and **Industrial** (4). The three cover tiles are ARIA tabs over the
+galleries below: clicking one shows that category and hides the others, and the choice is
+reflected in the URL (`projects.html#commercial`) so a category can be linked to directly.
+With JavaScript off every panel stays visible, so nothing is hidden from a crawler or a
+no-JS visitor.
+
+Each image is one `<button class="tile" data-lb>`; the `data-full`, `data-sector`,
+`data-title` and `data-alt` attributes drive the lightbox. To add a project, generate the
+two image files, copy a tile block into the right panel, and bump the `cat__count` label on
+that category's tile. The lightbox counter follows the visible category automatically.
+
+The homepage carries a nine-image teaser using plain `<figure class="shot">` tiles (no
+lightbox) plus a link through to the full page.
+
+> **The four Industrial images are AI-generated**, not photographs of completed Lebensdauer
+> Group contracts (`industrial-distribution`, `industrial-warehouse-interior`,
+> `industrial-portal-frame`, `industrial-envelope`). Replace them with real project
+> photography as soon as it exists — see the note in the handover discussion.
 
 The lightbox lives in `assets/js/main.js`: arrow keys and on-screen arrows to browse
 (wrapping at both ends), swipe on touch, `Escape` or a backdrop click to close, focus moved
