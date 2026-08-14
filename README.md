@@ -143,12 +143,19 @@ ffmpeg -i "Our work/<source>.jpeg" -vf "scale='min(iw,1600)':-2" \
   -q:v 4 assets/img/projects/full/<slug>.jpg
 ```
 
-`projects.html` groups the work into three categories — **Residential** (12),
-**Commercial** (10) and **Industrial** (4). The three cover tiles are ARIA tabs over the
-galleries below: clicking one shows that category and hides the others, and the choice is
-reflected in the URL (`projects.html#commercial`) so a category can be linked to directly.
-With JavaScript off every panel stays visible, so nothing is hidden from a crawler or a
-no-JS visitor.
+`projects.html` groups the work into three categories — **Residential** (38),
+**Commercial** (20) and **Industrial** (6). Within each, tiles run completed work first,
+then developments, finishes, structure and design. The three cover tiles are ARIA tabs over
+the galleries below: clicking one shows that category and hides the others, and the choice
+is reflected in the URL (`projects.html#commercial`) so a category can be linked to
+directly. With JavaScript off every panel stays visible, so nothing is hidden from a
+crawler or a no-JS visitor.
+
+The gallery is generated, not hand-written. `tools/projects-data.js` is the single source
+of truth — one row per image: `[slug, sourceFile, eyebrow, title, altText]`, with
+`sourceFile: null` meaning "already processed". Re-running the build script regenerates
+both image sizes for anything new and rewrites the category tiles and panels in place, so
+adding a project means adding one row rather than editing markup by hand.
 
 Each image is one `<button class="tile" data-lb>`; the `data-full`, `data-sector`,
 `data-title` and `data-alt` attributes drive the lightbox. To add a project, generate the
