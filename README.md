@@ -143,8 +143,8 @@ ffmpeg -i "Our work/<source>.jpeg" -vf "scale='min(iw,1600)':-2" \
   -q:v 4 assets/img/projects/full/<slug>.jpg
 ```
 
-`projects.html` groups the work into three categories — **Residential** (38),
-**Commercial** (20) and **Industrial** (6). Within each, tiles run completed work first,
+`projects.html` groups the work into three categories — **Residential** (46),
+**Commercial** (26) and **Industrial** (23). Within each, tiles run completed work first,
 then developments, finishes, structure and design. The three cover tiles are ARIA tabs over
 the galleries below: clicking one shows that category and hides the others, and the choice
 is reflected in the URL (`projects.html#commercial`) so a category can be linked to
@@ -165,10 +165,22 @@ that category's tile. The lightbox counter follows the visible category automati
 The homepage carries a nine-image teaser using plain `<figure class="shot">` tiles (no
 lightbox) plus a link through to the full page.
 
-> **The four Industrial images are AI-generated**, not photographs of completed Lebensdauer
-> Group contracts (`industrial-distribution`, `industrial-warehouse-interior`,
-> `industrial-portal-frame`, `industrial-envelope`). Replace them with real project
-> photography as soon as it exists — see the note in the handover discussion.
+Every image in the gallery is now a photograph of Lebensdauer Group's own work. Four
+AI-generated stand-ins previously filled the Industrial category while there was no
+industrial photography to show; they were removed once real photographs arrived and are
+recoverable from git history (`git log -- assets/img/projects/full/industrial-envelope.jpg`)
+if they are ever wanted back.
+
+Source photography lives in `Our work/`. The first batch sits in the folder root; later
+batches arrive pre-sorted into `residential/`, `commercial/` and `inbdustrial/` subfolders
+(the misspelling is the client's — left alone so their folder tree is not disturbed).
+Before adding a batch, hash-check it against what is already published — several files have
+arrived twice under different names:
+
+```bash
+# from "Our work"
+md5sum *.jpeg */*.jpeg | sort | uniq -w32 -D
+```
 
 The lightbox lives in `assets/js/main.js`: arrow keys and on-screen arrows to browse
 (wrapping at both ends), swipe on touch, `Escape` or a backdrop click to close, focus moved

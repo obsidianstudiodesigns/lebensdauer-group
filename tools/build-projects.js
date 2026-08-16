@@ -45,10 +45,20 @@ for (const key of order) for (const [, f] of DATA[key].items) if (f) used[f] = (
 const dupes = Object.keys(used).filter(f => used[f] > 1);
 if (dupes.length) { console.log('DUPLICATE SOURCES:\n' + dupes.join('\n')); process.exit(1); }
 
-const allSources = fs.readdirSync(SRC).filter(f => /\.jpe?g$/i.test(f));
-const unused = allSources.filter(f => !used[f]);
-console.log('sources used ' + Object.keys(used).length + ' of ' + allSources.length +
-  (unused.length ? '\nnot published: ' + unused.join(', ') : ''));
+/* Walk the whole source tree, subfolders included. Entries carrying
+   `file: null` were processed in an earlier batch and can no longer be traced
+   back to a filename, so anything listed here is only *possibly* unpublished. */
+const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e =>
+  e.isDirectory() ? walk(path.join(dir, e.name)).map(f => e.name + '/' + f)
+    : (/\.jpe?g$/i.test(e.name) ? [e.name] : []));
+
+const allSources = walk(SRC);
+const unreferenced = allSources.filter(f => !used[f]);
+console.log('sources referenced by name: ' + Object.keys(used).length + ' of ' + allSources.length);
+if (unreferenced.length) {
+  console.log('not referenced by name (' + unreferenced.length + ') — earlier-batch files ' +
+    'reach the site through `file: null` entries, so check before assuming these are missing');
+}
 
 /* ---------- 2. rebuild projects.html ---------- */
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');

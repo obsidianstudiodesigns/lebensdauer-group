@@ -1,6 +1,12 @@
 /* slug, source file (null = already processed), eyebrow, title, alt.
    Order within each category is the display order. */
 const B = 'WhatsApp Image 2026-08-12 at ';
+/* Later batch, delivered pre-sorted into subfolders (the industrial folder is
+   spelled "inbdustrial" on disk — left as-is rather than renaming the client's
+   source tree). */
+const R = 'residential/WhatsApp Image 2026-08-14 at ';
+const C = 'commercial/WhatsApp Image 2026-08-14 at ';
+const I = 'inbdustrial/WhatsApp Image 2026-08-14 at ';
 
 module.exports = {
   residential: {
@@ -42,7 +48,12 @@ module.exports = {
       ['residential-slab-pour', B + '11.39.45.jpeg', 'Structure', 'Slab pour', 'Concrete pump boom over a reinforced slab with the site team in position'],
       ['residential-pump-pour', B + '11.39.45 (1).jpeg', 'Structure', 'Pumping concrete', 'Site team placing pumped concrete across a suspended slab'],
       ['residential-pour-team', B + '11.39.45 (2).jpeg', 'Structure', 'Pour in progress', 'Concrete being placed and worked across a suspended slab by the site team'],
-      ['residential-rib-block', B + '11.39.37.jpeg', 'Structure', 'Rib-and-block slab', 'Rib-and-block suspended slab laid out over the ground floor before the topping'],
+      ['residential-deck-pour', R + '16.58.05.jpeg', 'Structure', 'Placing concrete', 'Concrete being placed by pump across a rib-and-block deck with the team working it'],
+      ['residential-rib-deck', R + '16.58.06.jpeg', 'Structure', 'Rib-and-block deck', 'Rib-and-block deck laid out and reinforced ahead of the topping, coastal estate beyond'],
+      ['residential-suspended-slab', R + '16.58.10 (1).jpeg', 'Structure', 'Suspended slab', 'Suspended slab seen from above with the reinforcement and blockwork below'],
+      ['residential-excavation', R + '16.58.07.jpeg', 'Structure', 'Excavation', 'Excavation alongside a partly built house with the site team and barrier tape in place'],
+      ['residential-foundations', R + '16.58.08.jpeg', 'Structure', 'Foundations', 'Foundation excavation open beside a rising blockwork superstructure'],
+      ['residential-boundary-wall', R + '16.58.02 (1).jpeg', 'Structure', 'Boundary walling', 'Face-brick boundary walling under construction alongside a house being built'],
       ['residential-props-slab', B + '11.39.36 (1).jpeg', 'Structure', 'Propped soffit', 'Freshly cast slab soffit still on props above a block-walled ground floor'],
       ['residential-propped-interior', B + '11.39.46.jpeg', 'Structure', 'Propped interior', 'Interior of a house under construction with the slab above still fully propped'],
       ['residential-interior-shell', B + '11.39.46 (1).jpeg', 'Structure', 'Internal shell', 'Internal shell of a house with block walls, openings formed and props in place'],
@@ -51,6 +62,11 @@ module.exports = {
       ['residential-roof-trusses', B + '11.39.58.jpeg', 'Structure', 'Roof trusses', 'Timber roof trusses erected and braced over a completed brick superstructure'],
       ['residential-roof-tiling', B + '11.40.00.jpeg', 'Structure', 'Roof tiling', 'Roof tiles loaded out and being laid over battens on a new roof'],
       ['residential-site-clearing', B + '11.39.36.jpeg', 'Site', 'Site clearing', 'Backhoe loader clearing and levelling a site platform ahead of foundations'],
+
+      /* --- pools --- */
+      ['residential-pool-brick', R + '16.58.01 (1).jpeg', 'Pools', 'Swimming pool', 'Newly built swimming pool with a paved surround alongside a face-brick home'],
+      ['residential-pool-terrace', R + '16.58.01.jpeg', 'Pools', 'Pool & terrace', 'Pool and paved terrace running alongside a modern home with stacking doors'],
+      ['residential-lap-pool', R + '16.58.02.jpeg', 'Pools', 'Lap pool & deck', 'Long lap pool with a timber deck edge set into a hedged garden'],
 
       /* --- design --- */
       ['residential-render-aerial', B + '11.39.34 (1).jpeg', 'Design', 'Roof plan visualisation', 'Aerial architectural visualisation of a home showing the roof layout and courtyard'],
@@ -70,12 +86,18 @@ module.exports = {
       ['commercial-showroom-angle', B + '11.39.32.jpeg', 'Completed', 'Forecourt', 'Showroom building and paved forecourt seen from the entrance approach'],
       ['commercial-colonnade', B + '11.39.51.jpeg', 'Completed', 'Colonnade & parking', 'Completed commercial building with a covered colonnade and parking bays'],
       ['commercial-retail-paving', B + '11.39.52 (1).jpeg', 'Completed', 'External works', 'Completed retail frontage with the block paving and planting being finished'],
+      ['commercial-arched-wall', C + '16.58.18.jpeg', 'Completed', 'Arched boundary wall', 'Completed arched boundary wall running along the street frontage of a building'],
+      ['commercial-boundary-wall', C + '16.58.15 (1).jpeg', 'Completed', 'Boundary walling', 'New rendered boundary wall and piers completed in front of a street-facing building'],
+      ['commercial-rendered-facade', C + '16.58.18 (3).jpeg', 'Completed', 'Rendered façade', 'Completed rendered façade and side elevation facing onto the street'],
       ['commercial-retail', null, 'Completed', 'Retail development', 'Completed retail building with full-height shopfront glazing and a paved apron'],
       ['industrial-units', null, 'Completed', 'Commercial units', 'Row of completed units with roller shutter doors and a paved yard'],
       ['industrial-cladding', null, 'Completed', 'Cladding complete', 'Long building with dark profile cladding over a face-brick base'],
       ['industrial-steel-frame', null, 'Completed', 'Steel-framed build', 'Steel-framed building with the roof sheeted and a deep canopy'],
       ['commercial-fitout', B + '11.39.50.jpeg', 'Fit-out', 'Internal fit-out', 'Internal fit-out under way in a commercial unit with services exposed overhead'],
       ['commercial-fitout-scaffold', B + '11.39.52.jpeg', 'Fit-out', 'Ceilings & services', 'Mobile scaffold in place for ceiling and services installation in a retail space'],
+      ['commercial-partitions', C + '16.58.03 (1).jpeg', 'Fit-out', 'Partitions & services', 'Partition boards standing ready in a commercial unit with services exposed overhead'],
+      ['commercial-rib-block', B + '11.39.37.jpeg', 'Structure', 'Rib-and-block slab', 'Rib-and-block suspended slab laid out over the ground floor before the topping'],
+      ['commercial-suspended-slab', C + '16.58.12.jpeg', 'Structure', 'Suspended slab', 'Rib-and-block suspended slab laid out over a commercial ground floor'],
       ['commercial-paving-team', B + '11.39.55.jpeg', 'On site', 'External paving', 'Paving being laid at the entrance of a newly completed commercial building'],
       ['industrial-steel-erection', null, 'In progress', 'Steel erection', 'Erected steel portal frames over brick columns on a cleared site'],
       ['industrial-frame-brickwork', null, 'In progress', 'Frame & brickwork', 'Steel frame with brickwork under way and site teams at work'],
@@ -88,15 +110,41 @@ module.exports = {
 
   industrial: {
     name: 'Industrial',
-    cover: 'industrial-stack-scaffold',
-    coverAlt: 'Access scaffold erected around an industrial stack',
+    cover: 'industrial-office-building',
+    coverAlt: 'Completed multi-storey office building with banded glazing',
     items: [
+      /* --- completed --- */
+      ['industrial-office-building', I + '16.49.48 (1).jpeg', 'Completed', 'Office building', 'Completed multi-storey office building with banded glazing and stone cladding'],
+      ['industrial-building-entrance', I + '16.49.48.jpeg', 'Completed', 'Building entrance', 'Entrance canopy and landscaped approach to a completed office building'],
+
+      /* --- plant & facilities --- */
+      ['industrial-factory-floor', I + '16.49.35 (1).jpeg', 'Facility', 'Factory floor', 'Working factory floor with production machinery and marked traffic routes'],
       ['industrial-stack-scaffold', B + '11.39.47.jpeg', 'On site', 'Stack access scaffold', 'Access scaffold erected around an industrial stack between clad factory buildings'],
       ['industrial-stack-works', B + '11.39.49.jpeg', 'On site', 'Stack works', 'Industrial stack works viewed along the service alley between factory buildings'],
-      ['industrial-distribution', null, 'Facility', 'Distribution warehouse', 'Large distribution warehouse with roller shutter loading bays and a concrete yard'],
-      ['industrial-warehouse-interior', null, 'Facility', 'Warehouse interior', 'Clear-span warehouse interior with roof lights and a power-floated concrete floor'],
-      ['industrial-portal-frame', null, 'In progress', 'Portal frame erection', 'Steel portal frames being lifted into place by a mobile crane at sunset'],
-      ['industrial-envelope', null, 'In progress', 'Structural envelope', 'Interior of a partly built industrial unit with steel columns and roof lights']
+
+      /* --- electrical --- */
+      ['industrial-transformer', I + '16.49.45.jpeg', 'Electrical', 'Transformer installation', 'Medium-voltage transformer installed on a bunded plinth in a substation room'],
+      ['industrial-transformer-plinth', I + '16.49.46 (1).jpeg', 'Electrical', 'Transformer plinth', 'Transformer seated on its bunded concrete plinth with clearances set out'],
+      ['industrial-substation', I + '16.49.46.jpeg', 'Electrical', 'Substation equipment', 'Substation equipment and switchgear beneath overhead services pipework'],
+      ['industrial-transformer-detail', I + '16.49.47.jpeg', 'Electrical', 'Transformer detail', 'Close view of transformer radiators and mountings within the bunded plinth'],
+
+      /* --- office fit-out --- */
+      ['industrial-boardroom', I + '16.49.47 (1).jpeg', 'Fit-out', 'Boardroom', 'Completed boardroom with a long table, screen and full-height glazing'],
+      ['industrial-glazed-partitions', I + '16.49.36.jpeg', 'Fit-out', 'Glazed partitions', 'Frosted-banded glazed partitions dividing a fitted-out office floor'],
+      ['industrial-office-partitioning', I + '16.49.37 (1).jpeg', 'Fit-out', 'Office partitioning', 'Glazed office partitioning installed along a fitted-out floor plate'],
+      ['industrial-partitioned-offices', I + '16.49.37 (2).jpeg', 'Fit-out', 'Partitioned offices', 'Run of partitioned offices behind banded glazing on a completed floor'],
+      ['industrial-partition-detail', I + '16.49.37.jpeg', 'Fit-out', 'Partition detail', 'Detail of a glazed partition junction and door set in a fitted-out office'],
+      ['industrial-meeting-room', I + '16.49.41.jpeg', 'Fit-out', 'Meeting room', 'Glazed meeting room with a wall-mounted screen on a completed office floor'],
+
+      /* --- parking decks & surfacing --- */
+      ['industrial-parking-works', I + '16.49.35.jpeg', 'Parking', 'Parking deck works', 'Parking deck under refurbishment with barriers in place and bays being reworked'],
+      ['industrial-parking-finishes', I + '16.49.43 (1).jpeg', 'Parking', 'Wall & floor finishes', 'Face-brick wall and painted dado completed alongside a resurfaced parking floor'],
+      ['industrial-bay-marking', I + '16.49.43.jpeg', 'Parking', 'Bay marking', 'Parking bays set out and marked against a freshly painted dado'],
+      ['industrial-floor-marking', I + '16.49.43 (2).jpeg', 'Parking', 'Floor marking', 'Directional floor marking newly applied across a parking deck'],
+      ['industrial-directional-marking', I + '16.49.44.jpeg', 'Parking', 'Directional marking', 'Arrow marking applied to a parking deck floor against a face-brick wall'],
+      ['industrial-customer-parking', I + '16.49.44 (1).jpeg', 'Parking', 'Customer parking', 'Completed customer parking deck in use with bays and directional markings'],
+      ['industrial-basement-parking', I + '16.49.47 (2).jpeg', 'Parking', 'Basement parking', 'Long run of completed basement parking with lighting and directional markings'],
+      ['industrial-asphalt', I + '16.49.44 (2).jpeg', 'Surfacing', 'Asphalt surfacing', 'Newly laid asphalt surfacing with white line marking set out']
     ]
   }
 };
