@@ -405,12 +405,6 @@ body::after {
 .masthead__cta:hover { border-color: var(--amber); color: var(--amber); }
 .masthead__cta:hover svg { color: inherit; }
 
-/* Second number drops out first when the bar gets tight — it is still in the
-   drawer, the CTA blocks and the footer. */
-@media (max-width: 1180px) {
-  .masthead__cta--alt { display: none; }
-}
-
 /* Burger */
 .burger {
   display: none;
